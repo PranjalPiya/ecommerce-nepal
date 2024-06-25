@@ -1,7 +1,7 @@
 import 'dart:developer';
 
 import 'package:dio/dio.dart';
-import 'package:ecommerce_nepal/core/strings/urls.dart';
+import 'package:ecommerce_nepal/core/constant/urls.dart';
 
 class DioHelper {
   static final DioHelper _singleton = DioHelper._internal();
@@ -49,12 +49,6 @@ class DioHelper {
   Future<dynamic> getData(
       {String? path, Map<String, dynamic>? queryParameters}) async {
     try {
-      // String? access;
-      // if (tokenRequired) {
-      //   final prefs = await SharedPreferences.getInstance();
-      //   access = prefs.getString('access');
-      // }
-
       final response = await dio.get<dynamic>(path!,
           queryParameters: queryParameters,
           options: Options(

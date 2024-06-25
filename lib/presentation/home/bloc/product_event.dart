@@ -7,3 +7,5 @@ class ProductEvent extends Equatable {
 }
 
 class FetchAllProductEvent extends ProductEvent {}
+
+class FetchProductCategoryEvent extends ProductEvent {}

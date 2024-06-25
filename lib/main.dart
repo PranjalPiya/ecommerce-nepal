@@ -1,11 +1,7 @@
-import 'dart:convert';
-import 'dart:developer';
-
-import 'package:dio/dio.dart';
-import 'package:ecommerce_nepal/core/helper/dio_helper.dart';
 import 'package:ecommerce_nepal/data/domain/repository_imp/product_repo_imp.dart';
 import 'package:ecommerce_nepal/presentation/home/bloc/product_bloc.dart';
-import 'package:ecommerce_nepal/presentation/home/screens/home_screen.dart';
+import 'package:ecommerce_nepal/navigation_bar.dart';
+import 'package:ecommerce_nepal/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -23,8 +19,7 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider(
           create: (context) =>
-              ProductBloc(productRepository: ProductRepositoryImpl())
-                ..add(FetchAllProductEvent()),
+              ProductBloc(productRepository: ProductRepositoryImpl()),
         ),
       ],
       child: MaterialApp(
@@ -33,7 +28,8 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: const MyHomePage(),
+        home: const SplashScreen(),
+        // const MainNavigationPage(),
       ),
     );
   }
